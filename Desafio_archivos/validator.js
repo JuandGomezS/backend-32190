@@ -2,30 +2,40 @@ const fs = require('fs');
 
 class validator {
 
-    resIsset = {}
+    /**
+     * Method to validate non undefined
+     * @param {any} ref 
+     * @returns boolean
+     */
+    isset(ref) {
+        return typeof ref !== 'undefined'
+    }
 
-    isset (ref) { return typeof ref !== 'undefined' }
-
+    /**
+     * Method to validate that FileName's directory exist
+     * @param {string} path 
+     * @returns object
+     */
     async issetFile(path) {
-
+        const resIsset = {}
         try {
-
             let arreglo = await fs.promises.readFile(path, 'utf-8');
-            this.resIsset.error = 0
-            this.resIsset.products = JSON.parse(arreglo)
-            return this.resIsset;
-
+            resIsset.error = 0
+            resIsset.products = JSON.parse(arreglo)
+            return resIsset;
         } catch (error) {
-
-            this.resIsset.error = 1
-            this.resIsset.products = []
-            return this.resIsset;
-
+            resIsset.error = 1
+            resIsset.products = []
+            return resIsset;
         }
     }
 
-
-    validObject(object){
+    /**
+     * Method to validate the structure of object
+     * @param {object} object 
+     * @returns boolean
+     */
+    validObject(object) {
         if (this.isset(object) && this.isset(object.title) && this.isset(object.price) && this.isset(object.thumbnail)) {
             return true;
         }

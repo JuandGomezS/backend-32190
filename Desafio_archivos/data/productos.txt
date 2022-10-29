@@ -1,26 +1,20 @@
 [
 	{
-		"title": "gorra",
-		"price": "450",
+		"title": "Gorra",
+		"price": 450,
 		"thumbnail": "https://ruta",
 		"id": 1
 	},
 	{
-		"title": "gorra",
-		"price": "450",
+		"title": "Camiseta",
+		"price": 500,
 		"thumbnail": "https://ruta",
 		"id": 2
 	},
 	{
-		"title": "gorra",
-		"price": "450",
+		"title": "Posillo",
+		"price": 300,
 		"thumbnail": "https://ruta",
 		"id": 3
-	},
-	{
-		"title": "gorra",
-		"price": "450",
-		"thumbnail": "https://ruta",
-		"id": 5
 	}
 ]
