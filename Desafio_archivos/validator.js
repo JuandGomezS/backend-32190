@@ -36,10 +36,7 @@ class validator {
      * @returns boolean
      */
     validObject(object) {
-        if (this.isset(object) && this.isset(object.title) && this.isset(object.price) && this.isset(object.thumbnail)) {
-            return true;
-        }
-        return false;
+        return this.isset(object) && this.isset(object.title) && this.isset(object.price) && this.isset(object.thumbnail)
     }
 }
 
