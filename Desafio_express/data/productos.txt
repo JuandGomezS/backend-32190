@@ -1,0 +1,38 @@
+[
+	{
+		"title": "Gorra",
+		"price": 450,
+		"thumbnail": "https://ruta",
+		"id": 1
+	},
+	{
+		"title": "Camiseta",
+		"price": 500,
+		"thumbnail": "https://ruta",
+		"id": 2
+	},
+	{
+		"title": "Posillo",
+		"price": 300,
+		"thumbnail": "https://ruta",
+		"id": 3
+	},
+	{
+		"title": "Destornillador",
+		"price": 450,
+		"thumbnail": "https://ruta",
+		"id": 4
+	},
+	{
+		"title": "Taladro",
+		"price": 500,
+		"thumbnail": "https://ruta",
+		"id": 5
+	},
+	{
+		"title": "Cinta",
+		"price": 300,
+		"thumbnail": "https://ruta",
+		"id": 6
+	}
+]
