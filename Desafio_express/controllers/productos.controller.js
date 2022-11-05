@@ -8,7 +8,7 @@ async function getAll(req, res) {
 
 async function getById (req, res) {
     let productos = await ar.getAll();
-    let idR =  Math.floor((Math.random() * (productos.length - 1 + 1)) + 1);
+    let idR =  Math.floor((Math.random() * (productos.length)) + 1);
     let producto = await ar.getById(idR);
     res.json(producto[0]);
 }
