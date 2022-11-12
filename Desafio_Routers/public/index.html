@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ingreso</title>
+</head>
+<body onload="cleanForm()">
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        
+        <h2>Ingrese Producto</h2>
+        <form action="/api/productos" method="POST" style="display: flex; justify-content: center; align-items: center; flex-direction: column;" id="form">
+            Nombre: <input type="text" name="title">
+            Precio: <input type="number" name="price">
+            Imagen url: <input type="text" name="thumbnail">
+            <button>Enviar</button>
+        </form>
+    </div>
+
+</body>
+<script>
+    function cleanForm(){
+        document.getElementById('form').reset();
+    }
+</script>
+
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+</style>
+</html>
