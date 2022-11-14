@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
     res.send('<h1 style="color:black"> Bienvenidos al Servidor Express </h1>');
 });
 
-app.use('/form', express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

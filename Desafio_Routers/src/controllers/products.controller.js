@@ -6,29 +6,30 @@ function getAllProducts(req, res) {
     res.json(response)
 }
 
-function getProductById (req, res) {
-    const { id } = req.params;
-    let response = bd.getById(id)[0];
-    res.status(response.error ? response.status : 200)
-    delete response.status
-    res.json(response);
-}
-
 function saveProduct(req, res) {
     res.json(bd.save(req.body))
 }
 
+function getProductById (req, res) {
+    const { id } = req.params;
+    let response = bd.getById(id)[0];
+    sendResponse(req, res, response);
+}
+
+
 function removeProduct (req, res){
     const { id } = req.params;
     const response = bd.deleteById(id)
-    res.status(response.error ? response.status : 200)
-    delete response.status
-    res.json(response)
+    sendResponse(req, res, response);
 }
 
 function updateProduct(req, res){
     const { id } = req.params;
     const response = bd.updateProduct(id, req.body)
+    sendResponse(req, res, response);
+}
+
+function sendResponse(req, res, response){
     res.status(response.error ? response.status : 200)
     delete response.status
     res.json(response)
