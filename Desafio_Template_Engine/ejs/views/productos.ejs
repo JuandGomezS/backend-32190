@@ -14,7 +14,9 @@
                 <tr>
                     <td><%= n.title %></td>
                     <td><%= n.price %></td>
-                    <td><%= n.thumbnail %></td>
+                    <td>
+                        <img style="width: 60px" src=<%=n.thumbnail %> alt=<%=n.title %>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>

@@ -5,7 +5,9 @@ const PORT = 8080;
 let productos = [];
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use(express.static('public'));
 
 
@@ -13,7 +15,10 @@ app.set('view engine', 'ejs');
 
 app.get('/productos', (req, res) => {
     let exist = productos.length > 0;
-    res.render('head', { products: productos, listExists: exist});
+    res.render('head', {
+        products: productos,
+        listExists: exist
+    });
 })
 
 app.post('/productos', (req, res) => {

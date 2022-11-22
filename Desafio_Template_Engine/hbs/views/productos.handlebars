@@ -9,12 +9,12 @@
                 <th scope="col">Imagen</th>
             </tr>
         </thead>
-        <tbody>    
+        <tbody>
         {{#each products}}
                 <tr>
                     <td>{{this.title}}</td>
                     <td>{{this.price}}</td>
-                    <td>{{this.thumbnail}}</td>
+                    <td><img style="width: 60px" src="{{this.thumbnail}}" alt="{{this.title}}"></td>
                 </tr>
         {{/each}}
         </tbody>
