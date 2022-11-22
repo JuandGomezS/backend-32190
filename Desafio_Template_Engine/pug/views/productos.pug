@@ -12,9 +12,10 @@ block productos
                 th(scope='col') Imagen
             tbody
                 each n in products
-                    tr 
+                    tr
                         td= n.title
                         td= n.price
-                        td= n.thumbnail
-    else 
+                        td
+                            img(style="width: 60px", src=n.thumbnail, alt=n.title)
+    else
         h4.alert.alert-danger.container NO HAY PRODUCTOS
