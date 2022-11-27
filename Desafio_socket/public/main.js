@@ -7,6 +7,7 @@ const formatterPeso = new Intl.NumberFormat('es-CO', {
 });
 
 let formProducts = document.getElementById("productForm");
+let formMessages = document.getElementById("messageForm");
 
 formProducts.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -17,6 +18,16 @@ formProducts.addEventListener('submit', (event)=>{
     }
     formProducts.reset();
     socket.emit('newProduct', product);
+})
+
+formMessages.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const message = {
+        author: document.querySelector('[name="mail"]').value,
+        text: document.querySelector('[name="message"]').value,
+        date: new Date().toLocaleString().replace(',', '')
+    }
+    socket.emit('newMessage', message);
 })
 
 
@@ -41,4 +52,21 @@ socket.on('products', data => {
 
     }
     document.getElementById("tbody").innerHTML = html;
+});
+
+socket.on('messages', data => {
+    let html;
+    if(data.length > 0) {
+        html = data.map(
+                (e, i) => `
+            <div>
+                <strong style="color: blue;">${e.author}</strong>
+                <strong style="color: brown;">[${e.date}]:</strong>
+                <em style="color: green">${e.text}</em>
+            </div>
+        `
+            )
+            .join(" ");
+        document.getElementById("mensajes").innerHTML = html;
+    }
 });

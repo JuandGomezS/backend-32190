@@ -45,7 +45,7 @@ class validator {
      * @returns boolean
      */
     validMessage(object) {
-        return this.isset(object) && this.isset(object.author) && this.isset(object.message) && this.isset(object.timestamp)
+        return this.isset(object) && this.isset(object.author) && this.isset(object.text) && this.isset(object.date)
     }
 }
 

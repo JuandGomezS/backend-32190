@@ -6,8 +6,9 @@ function toSocketMessages(){
     return response;
 }
 
-async function insertMessage(message){
-    await bd.save(message);
+async function insertMessage(message){   
+    let response = await bd.save(message);
+    console.log(response)
 }
 
 
