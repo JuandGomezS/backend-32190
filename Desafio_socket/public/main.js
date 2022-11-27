@@ -28,6 +28,7 @@ formMessages.addEventListener('submit', (event) => {
         date: new Date().toLocaleString().replace(',', '')
     }
     socket.emit('newMessage', message);
+    document.querySelector('[name="message"]').value = '';
 })
 
 
