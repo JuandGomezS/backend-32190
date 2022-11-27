@@ -1,0 +1,43 @@
+<div class="d-flex flex-column">
+    <div>
+        <div class="container mt-3 d-flex justify-content-center flex-column align-items-center">
+            <div class="text-bg-light " style="padding: 0rem 2rem;">
+                <h2 style="color:blue;">Ingrese Producto</h2>
+                <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;" id="productForm">
+                    <div class="form-group">
+                        <label for="title"><b>Title</b></label>
+                        <input class="form-control" type="text" name="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price"><b>Price</b></label>
+                        <input class="form-control" type="number" name="price" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="thumbnail"><b>Thumbnail</b></label>
+                        <input class="form-control" type="text" name="thumbnail" required>
+                    </div>
+                    <input class="btn btn-primary my-2" type="submit" value="Enviar!">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-responsive container">
+        <table class="table table-success">
+            <thead>
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

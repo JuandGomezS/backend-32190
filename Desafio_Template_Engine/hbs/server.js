@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 app.engine('handlebars', handlebars.engine())
 
-app.set('views', './views')
+app.set('views', './src/views')
 app.set('view engine', 'handlebars')
 
 app.get('/productos', (req, res) => {

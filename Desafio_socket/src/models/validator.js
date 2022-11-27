@@ -16,27 +16,36 @@ class validator {
      * @param {string} path
      * @returns object
      */
-    async issetFile(path) {
+    issetFile(path) {
         const resIsset = {}
         try {
-            let arreglo = await fs.promises.readFile(path, 'utf-8');
+            let arreglo = fs.readFileSync(path, 'utf-8');
             resIsset.error = 0
-            resIsset.products = JSON.parse(arreglo)
+            resIsset.elements = JSON.parse(arreglo)
             return resIsset;
         } catch (error) {
             resIsset.error = 1
-            resIsset.products = []
+            resIsset.elements = []
             return resIsset;
         }
     }
 
     /**
-     * Method to validate the structure of object
+     * Method to validate the structure of product
      * @param {object} object
      * @returns boolean
      */
     validObject(object) {
         return this.isset(object) && this.isset(object.title) && this.isset(object.price) && this.isset(object.thumbnail)
+    }
+
+    /**
+     * Method to validate the estructure of message
+     * @param {object} object
+     * @returns boolean
+     */
+    validMessage(object) {
+        return this.isset(object) && this.isset(object.author) && this.isset(object.message) && this.isset(object.timestamp)
     }
 }
 
