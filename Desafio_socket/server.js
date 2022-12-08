@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 httpServer.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`)
+    console.log(`Servidor escuchando en el puerto http://localhost:${PORT}`)
 })
 
 httpServer.on("error", (error) => console.log("Error en servidor", error));
