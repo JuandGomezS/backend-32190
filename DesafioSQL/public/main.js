@@ -29,10 +29,7 @@ formMessages.addEventListener('submit', (event) => {
     }
     socket.emit('newMessage', message);
     document.querySelector('[name="message"]').value = '';
-})
-
-
-
+});
 
 socket.on('products', data => {
     let html;

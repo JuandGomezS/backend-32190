@@ -1,9 +1,9 @@
 import express from 'express';
-import { createServer }  from 'http';
+import { createServer } from 'http';
 import { Server } from "socket.io";
 import handlebars from "express-handlebars";
-import {toSocketMessages, insertMessage} from './src/controllers/messages.controller.js';
-import {toSocketProducts, insertProduct} from './src/controllers/products.controller.js';
+import { toSocketMessages, insertMessage } from './src/controllers/messages.controller.js';
+import { toSocketProducts, insertProduct } from './src/controllers/products.controller.js';
 
 const app = express();
 const httpServer = createServer(app);
