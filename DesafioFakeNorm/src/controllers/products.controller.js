@@ -1,4 +1,4 @@
-import { DataBase } from "../models/database.model.js";
+import { DataBase } from "../models/products.model.js";
 import { options } from "../options/mysql.options.js";
 import { fakeProds } from "../db/fakeData.js";
 

@@ -12,12 +12,6 @@ export class DataBase {
         if (!exist) {
             return await this.knex.schema.createTable(this.table, table => {
                 switch (this.table) {
-                    case 'messages':
-                        table.increments('id').primary();
-                        table.string('author').notNullable();
-                        table.string('date').notNullable();
-                        table.string('text').notNullable();
-                        break;
                     case 'products':
                         table.increments('id').primary();
                         table.string('title').notNullable();

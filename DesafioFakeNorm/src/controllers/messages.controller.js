@@ -1,12 +1,10 @@
-import { DataBase } from "../models/database.model.js";
-import { options } from "../options/sqlite.options.js";
+import { Chat } from "../models/Chat.model.js";
 
-const bd = new DataBase(options, 'messages');
+const bd = new Chat('messages');
 
-bd.createTable();
 
 async function toSocketMessages(){
-    return await bd.getAll();
+    return await bd.getNormalized();
 }
 
 async function insertMessage(message){

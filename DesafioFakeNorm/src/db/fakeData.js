@@ -6,3 +6,5 @@ export const fakeProds = () => ({
     price: faker.commerce.price(),
     thumbnail: faker.image.avatar()
 });
+
+/* https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1010.jpg */

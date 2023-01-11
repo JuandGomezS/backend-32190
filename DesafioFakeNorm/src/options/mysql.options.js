@@ -1,8 +1,6 @@
 
-import dotenv from 'dotenv';
-const {pathname: root} = new URL('../', import.meta.url)
-const __dirname=root.substring(1);
-dotenv.config({path: __dirname + '../.env'});
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 export const options = {
     client: 'mysql',
