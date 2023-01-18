@@ -34,7 +34,6 @@ formMessages.addEventListener('submit', (event) => {
         date: new Date().toLocaleString().replace(',', ''),
         text: document.querySelector('[name="message"]').value
     };
-    console.log(message)
     socket.emit('newMessage', message);
     document.querySelector('[name="message"]').value = '';
 });
@@ -93,5 +92,4 @@ function denormalize(data) {
 
     return normalizr.denormalize(data.normalized.result, messagesSchema, data.normalized.entities);
 
-    //console.log(dataDes)
 }

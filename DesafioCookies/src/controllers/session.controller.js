@@ -6,7 +6,7 @@ function setCredentials(req, res) {
     const { name } = req.body;
     if (name) {
         req.session.name = name;
-        return res.render('index', { script: 'main', user: req.session.name });
+        return res.redirect("/");
     }
 }
 

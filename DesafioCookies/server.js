@@ -48,7 +48,7 @@ app.use(
 
 app
     .get("/", auth, (req, res) => {
-        res.render('index', { script: 'main' });
+        res.render('index', { script: 'main', user: req.session.name });
     })
     .get("/api/productos-test", auth, fakeProducts)
     .post("/login", setCredentials)
