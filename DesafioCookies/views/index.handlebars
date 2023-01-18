@@ -1,4 +1,13 @@
-
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Bienvenido {{user}}</a>
+            <form class="d-flex" action='/logout' method="get">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
 <section class="container-fluid d-flex flex-row justify-content-center" style="margin-top: 2rem;">
     <div class="d-flex flex-column" style="width: 40%; padding-right: 3rem">
         <div>
@@ -6,7 +15,8 @@
                 <h2 style="color: brown;">PRODUCTOS</h2>
                 <div class="text-bg-light" style="padding: 0rem 2rem; border-radius: 4%">
                     <h2 style="color:blue;">Ingrese Producto</h2>
-                    <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;" id="productForm" autocomplete="off">
+                    <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                        id="productForm" autocomplete="off">
                         <div class="form-group">
                             <label for="title"><b>Nombre</b></label>
                             <input class="form-control" type="text" name="title" required>
@@ -47,7 +57,7 @@
             <h2 style="color: brown; margin: auto; width: 50%; text-align: center">CHAT</h2>
             <div id="compression"></div>
             <br>
-            <form autocomplete="off" style="padding-right: 3rem; font-size: small" id="messageForm" >
+            <form autocomplete="off" style="padding-right: 3rem; font-size: small" id="messageForm">
                 <fieldset class="text-bg-light" style="padding: 0.5rem; border-radius: 4%">
                     <legend style="font-weight: bold;">Información requerida</legend>
                     <br>
@@ -105,3 +115,6 @@
         </div>
     </div>
 </section>
+{{#if script}}
+<script src="../scripts/{{script}}.js"></script>
+{{/if}}

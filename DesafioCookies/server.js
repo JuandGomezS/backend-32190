@@ -1,9 +1,16 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
 import express from 'express';
 import { createServer } from 'http';
 import { Server } from "socket.io";
 import handlebars from "express-handlebars";
 import { toSocketMessages, insertMessage } from './src/controllers/messages.controller.js';
-import { toSocketProducts, insertProduct, fakeProducts} from './src/controllers/products.controller.js';
+import { toSocketProducts, insertProduct, fakeProducts } from './src/controllers/products.controller.js';
+import { auth } from './src/utils/authentication.js';
+import { renderSignIn, setCredentials, destroyCredentials } from './src/controllers/session.controller.js';
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
 const app = express();
 const httpServer = createServer(app);
@@ -20,11 +27,33 @@ app.use(express.static('./public'))
 app.set('views', './views')
 app.set('view engine', 'handlebars')
 
-app.get("/", (req, res) => {
-    res.render('index',{ script: 'main'});
-});
+app.use(cookieParser());
 
-app.get("/api/productos-test", fakeProducts);
+app.use(
+    session({
+        secret: process.env.SECRETMONGO,
+        saveUninitialized: false,
+        resave: false,
+        rolling: true,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGOURL,
+            mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
+            ttl: process.env.TTL,
+        }),
+        cookie: {
+            maxAge: process.env.TTL * 1000,
+        },
+    })
+);
+
+app
+    .get("/", auth, (req, res) => {
+        res.render('index', { script: 'main' });
+    })
+    .get("/api/productos-test", auth, fakeProducts)
+    .post("/login", setCredentials)
+    .get("/signin", renderSignIn)
+    .get('/logout', destroyCredentials);
 
 
 httpServer.listen(PORT, () => {

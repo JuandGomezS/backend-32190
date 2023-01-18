@@ -22,7 +22,7 @@ async function fakeProducts(req, res) {
         productos.push(prod);
     }
     let exist = productos.length > 0 ? true : false;
-    res.render("fake", { products: productos, listExists: exist , script: 'fake'});
+    res.render("fake", { products: productos, listExists: exist });
 }
 
 
