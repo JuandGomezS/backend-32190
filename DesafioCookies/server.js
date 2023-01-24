@@ -17,12 +17,11 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 const PORT = 8080;
-app.use('/static', express.static('/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.engine('handlebars', handlebars.engine())
-app.use(express.static('./public'))
+app.use(express.static('public'))
 
 app.set('views', './views')
 app.set('view engine', 'handlebars')
