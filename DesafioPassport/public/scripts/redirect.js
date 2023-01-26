@@ -10,7 +10,7 @@ Swal.fire({
 });
 
 function redirectPage() {
-    window.location.replace("/signin");
+    window.location.replace("/login");
 }
 
 setTimeout(redirectPage, 2000);

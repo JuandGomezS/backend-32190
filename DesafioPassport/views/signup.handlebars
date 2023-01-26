@@ -1,45 +1,36 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h2 class="text-center text-dark mt-5">SignUp Form</h2>
-            <div class="card my-5">
-                <form class="card-body cardbody-color p-lg-5" action="/signup" method="post">
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="User Name" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="password" class="form-control" id="password" name="name" placeholder="Password" required>
-                    </div>
-                    <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">SignUp</button></div>
-                </form>
+<div class="container d-flex justify-content-center align-items-center signup">
+    <div class="jumbotron">
+        <h1 class="text-center">REGISTER</h1>
+        <br />
+        <form class="form" action="/signup" method="post" role="form" autocomplete="off">
+            <div class="form-group">
+                <input id="nombre" name="username" placeholder="Username" class="form-control" type="text" required />
             </div>
+
+            <div class="form-group">
+                <input id="password" name="password" placeholder="Password" class="form-control" type="password" required />
+            </div>
+
+            <div class="form-group text-center">
+                <input class="btn btn-success my-3" type="submit" value="SignUp" />
+            </div>
+        </form>
+
+        <hr />
+
+        <div class="text-left">
+            <button class="btn btn-success my-3" onclick="location.href = '/login'">
+                LogIn
+            </button>
         </div>
     </div>
 </div>
 <style>
-    .btn-color {
-        background-color: #0e1c36;
-        color: #fff;
+    h1 {
+        color: blue;
     }
 
-    .btn:hover {
-        background-color: #767a81 !important;
-        color: #fff !important;
-    }
-
-    .profile-image-pic {
-        height: 200px;
-        width: 200px;
-        object-fit: cover;
-    }
-
-    .cardbody-color {
-        background-color: #ebf2fa;
-    }
-
-    a {
-        text-decoration: none;
+    .signup{
+        margin-top: 3rem !important;
     }
 </style>

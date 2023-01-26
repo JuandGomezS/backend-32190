@@ -15,13 +15,12 @@ const usuarioEsquema = mongoose.Schema(
 const usuario = mongoose.model(usuariosCollection, usuarioEsquema);
 
 
-async function getUser(user) {
+async function getUser(username) {
     try {
-        let usua = await usuario.findOne({ username: user }, { _id: 0, __v: 0 });
-        return usua
+        let user = await usuario.findOne({ username: username }, { _id: 0, __v: 0 });
+        return user
 
     } catch (error) {
-        console.log("David")
         return null
     }
 }
@@ -37,10 +36,10 @@ function createHash(password) {
 async function loginUser(username, password, done) {
     try {
         let user = await getUser(username)
-        if (user.length == 0) {
-            return done(null, false, { mensaje: 'Usuario o contraseña incorrectos' });
+        if (!user) {
+            return done(null, false, console.log('Usuario o contraseña incorrectos' ));
         } else {
-            if (passwordOk(password, user[0])) {
+            if (passwordOk(password, user)) {
                 return done(null, user)
             } else {
                 return done(null, false, { mensaje: 'Usuario o contraseña incorrectos' });
@@ -56,7 +55,7 @@ async function loginUser(username, password, done) {
 async function signupUser(username, password, done) {
     try {
         let user = await getUser(username);
-        if (user.length >= 1) {
+        if (user) {
             return done(null, false, console.log(user.username, 'Usuario ya existe'));
         } else {
             let nuevoUsuario = new usuario({

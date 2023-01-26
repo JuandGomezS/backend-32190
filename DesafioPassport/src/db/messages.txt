@@ -1,54 +1,15 @@
 [
 	{
 		"author": {
-			"mail": "juasn",
-			"name": "ana",
-			"surname": "asda",
+			"mail": "juan@mail.com",
+			"name": "JUAN",
+			"surname": "SANTAFE",
 			"age": "",
 			"alias": "",
-			"avatar": "asdasd"
+			"avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1010.jpg "
 		},
-		"date": "16/1/2023 19:20:24",
-		"text": "asdas",
+		"date": "25/1/2023 20:28:51",
+		"text": "Hola",
 		"id": 1
-	},
-	{
-		"author": {
-			"mail": "juasn",
-			"name": "ana",
-			"surname": "asda",
-			"age": "",
-			"alias": "",
-			"avatar": "asdasd"
-		},
-		"date": "16/1/2023 19:20:29",
-		"text": "asd",
-		"id": 2
-	},
-	{
-		"author": {
-			"mail": "fgh",
-			"name": "fghf",
-			"surname": "fghf",
-			"age": "",
-			"alias": "",
-			"avatar": "fghf"
-		},
-		"date": "16/1/2023 19:24:05",
-		"text": "fgh",
-		"id": 3
-	},
-	{
-		"author": {
-			"mail": "fgdf",
-			"name": "dfgdf",
-			"surname": "dfgdf",
-			"age": "",
-			"alias": "",
-			"avatar": "dfgd"
-		},
-		"date": "18/1/2023 20:13:28",
-		"text": "dfgdf",
-		"id": 4
 	}
 ]

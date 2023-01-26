@@ -13,6 +13,7 @@ import { toSocketProducts, insertProduct, fakeProducts } from './src/controllers
 import { auth } from './src/utils/authentication.js';
 import { renderLogin, destroyCredentials, renderFailLogin, renderSignUp, renderFailSignUp } from './src/controllers/session.controller.js';
 import { connectDB } from './src/utils/connectMongo.js';
+import { clearCache } from './src/utils/clearCache.js';
 
 
 dotenv.config();
@@ -54,6 +55,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(clearCache);
+
 
 const loginStrat = new LocalStrategy(loginUser);
 const signupStrat = new LocalStrategy(signupUser);
@@ -66,14 +69,14 @@ passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
 
-app.get("/", auth, (req, res) => { res.render('index', { script: 'main', user: req.name }) })
+app.get("/", auth, (req, res) => { res.render('index', { script: 'main', user: req.user[0].username }) })
     .get("/api/productos-test", auth, fakeProducts)
     .get('/logout', destroyCredentials);
 
 /* *********SIGNUP *****************/
 
 app.get("/signup", renderSignUp)
-    .post("/signup", passport.authenticate('signup', { failureRedirect: "/signup/error", successRedirect: "/login" }))
+    .post("/signup", passport.authenticate('signup', { failureRedirect: "/signup/error", successRedirect: "/" }))
     .get("/signup/error", renderFailSignUp);
 
 
