@@ -1,7 +1,7 @@
 
 function destroyCredentials(req, res) {
     if (!req.isAuthenticated()) {
-        res.redirect('/')
+        return res.redirect('/')
     }
     const username = req.user[0].username;
     req.session.destroy((err) => {
