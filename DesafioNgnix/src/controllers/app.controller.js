@@ -7,7 +7,7 @@ function renderSystemInfo(__, res) {
 }
 
 function renderRandomNumbers(req, res) {
-    const cant = req.query.cant ? Number(req.query.cant) : 100000000;
+    const cant = req.query.cant ? Number(req.query.cant) : 100;
     const forked = fork(path.resolve(process.cwd(), "./src/utils/getNumbersCount.js"));
     forked.on("message", (numbers) => res.json(numbers));
     forked.send({ cant });
