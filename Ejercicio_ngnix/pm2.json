@@ -1,0 +1,24 @@
+{
+    "script": "server.js",
+    "name": "Server01",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "8081"
+    ],
+    "env": {},
+    "merge_logs": true,
+    "vizion": true,
+    "autorestart": true,
+    "watch": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "Siro",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "write": true,
+    "exec_mode": "cluster",
+    "instances": 2
+  }
