@@ -6,9 +6,8 @@ import ip from 'ip'
 
 function renderSystemInfo(req, res) {
     const { url, method } = req
-    /* debugLogger.info(`Access to route: ${url} method: ${method}`)
-    warnLogger.warn(`Access to system info from ${ip.address()}`); */
-    
+    debugLogger.info(`Access to route: ${url} method: ${method}`)
+    warnLogger.warn(`Access to system info from ${ip.address()}`);    
     res.render("system_info", { title: "System Info", info: getSystemInfo() });
 }
 
