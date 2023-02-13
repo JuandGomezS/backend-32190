@@ -1,7 +1,7 @@
 import { DataBase } from "../models/products.model.js";
 import { options } from "../options/mysql.options.js";
 import { fakeProds } from "../db/fakeData.js";
-import { warnLogger, errorLogger, debugLogger} from "../utils/logger.js";
+import { logger} from "../utils/logger.js";
 
 
 const bd = new DataBase(options, 'products');
@@ -18,7 +18,7 @@ async function insertProduct(product) {
 
 async function fakeProducts(req, res) {
     const { url, method } = req
-    debugLogger.info(`Access to route: ${url} method: ${method}`)
+    logger.info(`Access to route: ${url} method: ${method}`)
     let productos = [];
     let cant = req.query.cant || 5;
     for (let i = 0; i < cant; i++) {

@@ -11,7 +11,7 @@ export function getSystemInfo() {
         folder: process.cwd(),
         processors: os.cpus().length
     }
-    //Uncomment to artillery fast
+    //Uncomment to artillery slow
     //console.log(systemInfo) 
     return systemInfo;
 }

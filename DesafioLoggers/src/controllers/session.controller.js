@@ -1,8 +1,8 @@
-import { warnLogger, errorLogger, debugLogger} from "../utils/logger.js";
+import { logger} from "../utils/logger.js";
 
 function destroyCredentials(req, res) {
     const { url, method } = req
-    debugLogger.info(`Access to route: ${url} method: ${method}`)
+    logger.info(`Access to route: ${url} method: ${method}`)
     if (!req.isAuthenticated()) {
         return res.redirect('/')
     }
@@ -18,7 +18,7 @@ function destroyCredentials(req, res) {
 
 function renderSignUp(req, res) {
     const { method } = req
-    debugLogger.info(`Access to route: /signup method: ${method}`)
+    logger.info(`Access to route: /signup method: ${method}`)
     return req.isAuthenticated()
         ? res.redirect("/")
         : res.render("signup");
@@ -26,7 +26,7 @@ function renderSignUp(req, res) {
 
 function renderFailLogin(req, res) {
     const { method } = req
-    debugLogger.info(`Access to route: /login/error method: ${method}`)
+    logger.info(`Access to route: /login/error method: ${method}`)
     return req.isAuthenticated()
         ? res.redirect("/")
         : res.render('error', { process: 'LOGIN' })
@@ -34,7 +34,7 @@ function renderFailLogin(req, res) {
 
 function renderFailSignUp(req, res) {
     const { method } = req
-    debugLogger.info(`Access to route: /signup/error method: ${method}`)
+    logger.info(`Access to route: /signup/error method: ${method}`)
     return req.isAuthenticated()
         ? res.redirect("/")
         : res.render('error', { process: 'SIGNUP' })
@@ -42,7 +42,7 @@ function renderFailSignUp(req, res) {
 
 function renderLogin(req, res) {
     const { method } = req
-    debugLogger.info(`Access to route: /login method: ${method}`)
+    logger.info(`Access to route: /login method: ${method}`)
     return req.isAuthenticated()
         ? res.redirect("/")
         : res.render("login");

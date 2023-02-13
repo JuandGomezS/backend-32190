@@ -1,5 +1,5 @@
 import knex from 'knex'
-import { errorLogger } from "../utils/logger.js";
+import { logger } from "../utils/logger.js";
 
 export class DataBase {
 
@@ -35,7 +35,7 @@ export class DataBase {
         try {
             return await this.knex.select('*').from(this.table);
         } catch (error) {
-            errorLogger.error(`Error getting products: ${error}`)
+            logger.error(`Error getting products: ${error}`)
         }
     }
 
@@ -49,7 +49,7 @@ export class DataBase {
             await this.knex(this.table).insert(object)
             return true;
         } catch (error) {
-            errorLogger.error(`Error saving product: ${error}`)
+            logger.error(`Error saving product: ${error}`)
             return false;
         }
     }

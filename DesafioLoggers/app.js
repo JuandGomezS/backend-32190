@@ -17,7 +17,7 @@ import { renderSystemInfo, renderRoot } from './src/controllers/app.controller.j
 import { UTIL_ROUTER } from './src/routers/util.router.js';
 import { SIGNUP_ROUTER } from './src/routers/signup.router.js';
 import { LOGIN_ROUTER } from './src/routers/login.router.js';
-import { warnLogger, errorLogger, debugLogger } from './src/utils/logger.js';
+import { logger } from './src/utils/logger.js';
 import compression from 'compression'
 
 dotenv.config();
@@ -33,10 +33,10 @@ export function startServer(port) {
     app.use(express.static('public'));
 
     httpServer.listen(PORT, () => {
-        debugLogger.info(`Servidor escuchando en el puerto http://localhost:${PORT}`)
+        logger.info(`Servidor escuchando en el puerto http://localhost:${PORT}`)
     });
 
-    httpServer.on("error", (error) => errorLogger.warn("Error en servidor" + error));
+    httpServer.on("error", (error) => logger.warn("Error en servidor" + error));
 
     app.use(
         session({
@@ -84,7 +84,7 @@ export function startServer(port) {
     app.get('*', (req, res) => {
         const { url, method } = req
         let msg = `Route ${method} ${url} not implemented`;
-        warnLogger.warn(msg)
+        logger.warn(msg)
         res.send(msg)
     })
 
