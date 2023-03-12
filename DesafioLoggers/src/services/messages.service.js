@@ -7,7 +7,7 @@ const getNormalized = async () => {
 }
 
 const insertMessage =  async (message) => {
-    await persistence.save(message);
+    return await persistence.save(message);
 }
 
 export default {
