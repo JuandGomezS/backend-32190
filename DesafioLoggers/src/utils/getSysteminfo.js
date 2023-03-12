@@ -1,6 +1,6 @@
 import os from 'os'
 
-export function getSystemInfo() {
+export const getSystemInfo = () => {
     let systemInfo = {
         args: JSON.stringify(process.argv.slice(2)),
         os: process.platform,

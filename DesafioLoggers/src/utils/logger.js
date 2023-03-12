@@ -3,13 +3,13 @@ import moment from 'moment'
 
 const LEVEL = Symbol.for('level');
 
-function filerLevel(level){
+const filerLevel = (level) => {
     return winston.format(function(info){
         if (info[LEVEL] == level) return info
     })();
 }
 
-function defaultLogger(){
+const defaultLogger = () => {
     return winston.createLogger({
         format: winston.format.combine(
             winston.format.timestamp({

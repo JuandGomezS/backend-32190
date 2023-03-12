@@ -4,12 +4,13 @@ import queryLogger from '../utils/queryLogger.js'
 dotenv.config()
 
 export const options = {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {
         host: process.env.IP,
         user: process.env.USER,
-        password: '',
-        database: process.env.DATABASE
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
+        port: process.env.DB_PORT
     },
     debug: true,
     log: {

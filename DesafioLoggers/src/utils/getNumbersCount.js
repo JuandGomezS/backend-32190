@@ -1,6 +1,6 @@
 import { generateRandomNumbers } from "./generateRandNumbers.js";
 
-function countNumbers(numbers) {
+const countNumbers = (numbers) => {
     const uniques = new Set(numbers);
     const data = {};
     uniques.forEach((number) => {

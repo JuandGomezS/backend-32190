@@ -3,7 +3,7 @@ import { getSystemInfo } from "./getSysteminfo.js";
 import cluster from 'cluster';
 import { logger } from "./logger.js";
 
-export function executeServerCluster(port) {
+export const executeServerCluster = (port) => {
     if (cluster.isPrimary) {
         logger.info("Executing app in cluster mode");
         const cpus = getSystemInfo().processors;
