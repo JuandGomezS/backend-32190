@@ -2,7 +2,7 @@ import knex from 'knex'
 import { transformToDTO } from '../DTOs/product.dto.js';
 import { logger } from "../../utils/loggers/logger.js";
 
-export class productsDao {
+export class ProductsDao {
 
     constructor(options, table) {
         this.knex = knex(options)
