@@ -1,6 +1,6 @@
 
 import * as dotenv from 'dotenv'
-import queryLogger from '../utils/queryLogger.js'
+import queryLogger from '../utils/loggers/queryLogger.js'
 dotenv.config()
 
 export const options = {

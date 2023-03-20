@@ -1,8 +1,9 @@
 
-import { userContainer } from "../persistence/containers/users.container.js";
-import { userModel } from "../persistence/user.model.js";
+import { userRepo } from "../persistence/repos/users.repo.js";
 
-const persistence = new userContainer(userModel);
+
+const persistence = new userRepo();
+
 
 const loginUser = async (username, password, done) => {
     return await persistence.loginUser(username, password, done);

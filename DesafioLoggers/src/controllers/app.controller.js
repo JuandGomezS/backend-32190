@@ -1,7 +1,7 @@
 import appService from "../services/app.service.js"
 import { fork } from 'child_process';
 import path from "path";
-import { logger } from "../utils/logger.js";
+import { logger } from "../utils/loggers/logger.js";
 import ip from 'ip'
 
 const renderSystemInfo = (req, res) => {

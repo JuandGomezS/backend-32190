@@ -11,10 +11,10 @@ import userController from "./src/controllers/users.controller.js";
 import messagesController from './src/controllers/messages.controller.js';
 import productsController from './src/controllers/products.controller.js';
 import appController from './src/controllers/app.controller.js';
-import { auth } from './src/utils/authentication.js';
+import { auth } from './src/utils/session/authentication.js';
 import compression from 'compression'
-import { clearCache } from './src/utils/clearCache.js';
-import { logger } from './src/utils/logger.js';
+import { clearCache } from './src/utils/session/clearCache.js';
+import { logger } from './src/utils/loggers/logger.js';
 import { UTIL_ROUTER } from './src/routers/util.router.js';
 import { SIGNUP_ROUTER } from './src/routers/signup.router.js';
 import { LOGIN_ROUTER } from './src/routers/login.router.js';

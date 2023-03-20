@@ -1,4 +1,4 @@
-import { logger} from "../utils/logger.js";
+import { logger} from "../utils/loggers/logger.js";
 import usersService from "../services/users.service.js";
 
 const destroyCredentials = (req, res) => {

@@ -1,9 +1,9 @@
 import * as dotenv from 'dotenv';
 import parseArgs from 'yargs/yargs';
-import { connectDB } from './src/utils/connectMongo.js';
 import { startServer } from './app.js';
-import { executeServerCluster } from './src/utils/execute_on_cluster.js';
-import { logger } from './src/utils/logger.js';
+import { executeServerCluster } from './src/utils/application/execute_on_cluster.js';
+import { logger } from './src/utils/loggers/logger.js';
+import { MongoConnection } from './src/utils/application/connectMongo.js';
 
 dotenv.config();
 const yargs = parseArgs(process.argv.slice(2))
@@ -18,7 +18,8 @@ const { port, mode, _ } = yargs
         mode: 'FORK'
     }).argv
 
-connectDB();
+const mongoConnection = new MongoConnection();
+mongoConnection.connect();
 
 switch (mode.toLowerCase()) {
     case "cluster":

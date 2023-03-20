@@ -1,18 +1,17 @@
-import { productsContainer } from "../persistence/containers/products.container.js";
-import { options } from "../options/mysql.options.js";
-import { fakeProds } from "../utils/fakeData.js";
+import { productsRepo } from "../persistence/repos/products.repo.js";
+import { fakeProds } from "../utils/application/fakeData.js";
 
 
-const bd = new productsContainer(options, 'products');
+const persistence = new productsRepo();
 
-bd.createTable();
+persistence.createTable();
 
 const toSocketProducts =  async () => {
-    return await bd.getAll();
+    return await persistence.getAll();
 }
 
 const insertProduct = async (product) => {
-    await bd.save(product);
+    await persistence.save(product);
 }
 
 const fakeProducts = (req) => {

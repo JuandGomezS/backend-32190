@@ -1,7 +1,7 @@
-import { startServer } from "../../app.js";
+import { startServer } from "../../../app.js";
 import { getSystemInfo } from "./getSysteminfo.js";
 import cluster from 'cluster';
-import { logger } from "./logger.js";
+import { logger } from "../loggers/logger.js";
 
 export const executeServerCluster = (port) => {
     if (cluster.isPrimary) {

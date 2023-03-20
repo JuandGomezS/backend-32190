@@ -1,6 +1,5 @@
 import productsService from "../services/products.service.js";
-import { fakeProds } from "../utils/fakeData.js";
-import { logger} from "../utils/logger.js";
+import { logger} from "../utils/loggers/logger.js";
 
 
 const toSocketProducts =  async () => {

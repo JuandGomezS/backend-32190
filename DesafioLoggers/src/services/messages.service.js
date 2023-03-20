@@ -1,6 +1,6 @@
-import { ChatContainer } from "../persistence/containers/chat.container.js";
+import { ChatRepo } from "../persistence/repos/chat.repo.js";
 
-const persistence = new ChatContainer('messages');
+const persistence = new ChatRepo();
 
 const getNormalized = async () => {
     return await persistence.getNormalized();
