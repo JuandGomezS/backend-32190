@@ -23,4 +23,9 @@ export class MongoConnection {
             console.error('Error connecting to MongoDB Atlas', err);
         }
     }
+
+    async disconnect() {
+        console.log("cerrando atlas");
+        mongoose.connection.close()
+    }
 }

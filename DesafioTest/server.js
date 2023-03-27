@@ -6,17 +6,20 @@ import { logger } from './src/utils/loggers/logger.js';
 import { MongoConnection } from './src/utils/application/connectMongo.js';
 
 dotenv.config();
-const yargs = parseArgs(process.argv.slice(2))
-
-const { port, mode, _ } = yargs
-    .alias({
-        p: 'port',
-        m: 'mode'
+const { port, mode } = parseArgs(process.argv.slice(2))
+    .option('port', {
+        alias: 'p',
+        describe: 'Puerto de escucha del servidor',
+        default: 8080
     })
-    .default({
-        port: 8080,
-        mode: 'FORK'
-    }).argv
+    .option('mode', {
+        alias: 'm',
+        describe: 'Modo de ejecución del servidor',
+        choices: ['FORK', 'CLUSTER'],
+        default: 'FORK'
+    })
+    .help()
+    .argv;
 
 const mongoConnection = new MongoConnection();
 mongoConnection.connect();
@@ -32,3 +35,4 @@ switch (mode.toLowerCase()) {
         break;
 }
 
+process.on('beforeExit', () => mongoConnection.disconnect());

@@ -5,14 +5,9 @@ const productsService = new ProductsService();
 
 export default class ProductsController {
 
-
-    constructor() {
-        this.productsService = productsService;
-    }
-
     getProducts = async (req, res) => {
         const { id } = req.params;
-        let products = {};
+        let products;
         if (id) {
             products = await productsService.getProductById(id)
             return res.json(products[0])
@@ -32,13 +27,13 @@ export default class ProductsController {
 
     updateProduct = async (req, res) => {
         const { id } = req.params;
-        let product = await this.productsService.updateProduct(id, req.body);
+        let product = await productsService.updateProduct(id, req.body);
         res.json(product[0]);
     }
 
     deleteProduct = async (req, res) => {
         const { id } = req.params;
-        let response = await this.productsService.deleteProduct(id);
+        let response = await tproductsService.deleteProduct(id);
         res.json(response)
     }
 

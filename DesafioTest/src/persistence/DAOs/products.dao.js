@@ -53,10 +53,10 @@ export class ProductsDao {
     }
 
     getProductById = async (id) => {
-        const errorResponse = {
+        const errorResponse = [{
             error: 1,
             message: `Product not found`
-        }
+        }]
         try {
             let product = await this.knex.select("*").from(this.table).where("id", id);
             if (!product.length) {

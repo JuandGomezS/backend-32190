@@ -12,11 +12,6 @@ export class ChatDao extends validator {
         this.pathFile = `./src/data/${fileName}.txt`;
     }
 
-    /**
-     * Async Method to get all products
-     * @param {boolean} toSave Parameter to define response according to use
-     * @returns Array of products or object
-     */
     async getAll(toSave = false) {
         const issetFile = await this.issetFile(this.pathFile);
         if (!issetFile.error) {
@@ -50,12 +45,6 @@ export class ChatDao extends validator {
         };
     }
 
-
-    /**
-     * Async Method to save product
-     * @param {object} object 
-     * @returns object
-     */
     async save(object) {
         const response = {
             error: 1,
